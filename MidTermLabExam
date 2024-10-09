@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+class Counter extends StatelessWidget {
+  const Counter({super.key});
+// From stateful widget, converted into stateless widget.
+// Removed the _counter variable, functions, and the set state method.
+/* Gumamit ng callBack function para mag call o mag print lamang ng message output
+    'the button was pressed' dahil ito ay isang StatelessWidget.
+*/
+void callBack(){
+  print('the button was pressed');
+}
+// Updated parent widget.
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: callBack,
+          child: const Text('Button'),
+        ),
+        const SizedBox(width: 16),
+        Text('Count: =)'),
+      ],
+    );
+  }
+}
+void main() {
+  runApp(
+    const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Counter(),
+        ),
+      ),
+    ),
+  );
+}
